@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/assets/indexstyle.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <nav class="prof-area">
+            <div class="prof-image">
+
+            </div>
+            <div class="prof-name">
+                    <h2>User name</h2>
+                    
+            </div>
+        </nav>
+    </header>
+    <hr>
+    <div class="content-area">
+
+        <div class="in-area">
+            <nav class="nav-area">
+                <h2>To-do-List</h2>
+                <hr>
+            </nav>
+
+            <form action="/" method="POST" class="do-form">
+                <label for="date">Date</label>
+
+                <input type="date" name="Date" id="date" required>
+
+                <label for="task">Task</label>
+
+                <input type="text" name="task" id="task" placeholder="Enter a Task">
+
+                <label for="statustype">Status</label>
+
+                <input list="status" name="statustype" id="statustype" placeholder="Status">
+                <datalist id="status">
+                    <option value="Open">Open</option>
+                    <option value="Process">Process</option>
+                    <option value="Done">Done</option>
+                </datalist>
+                <br>
+                <button class="submit">Submit</button>
+            </form>
+            <form action="/input-page/<% todos.id %>"></form>
+            <hr>
+        </div>
+    </div>
+
+    <!-- --------------------------------------------- -->
+    <!-- start of status area -->
+    <div class="status-area">
+        <div class="inopen-area">
+            <div class="open-title-area">
+                <h1>Open</h1>
+                <hr>       
+            </div>
+        </div>
+        <div class="process-area">
+            <div class="process-title-area">
+                 <h1>In Process</h1>
+                 <hr>
+            </div>
+        </div>
+
+        <div class="done-area">
+            <div class="done-title-area">
+               <h1>Done</h1>
+              <hr>       
+            </div>
+        </div>  
+
+        <!-- end of status area  -->
+
+
+
+    <% for(let i=0; i < todos.length; i++) { %>
+            <% if (todos[i].statustype === "Open") { %>
+                
+                        <% if(i < 5){ %>
+                            <div class="show-area">
+                                <p>Date:
+                                <p class="date-inside">
+                                    <%= todos[i].Date.toLocaleDateString('en-GB') %>
+                                </p>
+                                </p>
+                                <p>Task:
+                                <p class="task-inside"> <%= todos[i].task %>
+                                </p>
+                                </p>
+                                <p>Status:
+                                <p class="status-inside"><%= todos[i].statustype %>
+                                </p>
+                                </p>
+                                <div class="op-area">
+                                    <form action="/input/<%= todos[i].id %>" method="GET">
+                                        <button class="btn-s"><img src="/public/assets/setting.png" alt="" class="set-btn"></button>
+                                    </form>
+                                    <form action="/input/<%= todos[i].id %>/delete" method="GET">
+                                        <button class="btn-d"><img src="/public/assets/bin.png" class="bin" alt=""></button>
+                                    </form>
+                            </div>
+                 
+                        <% } %> 
+               
+             <% } else if(todos[i].statustype === "Process"){%>
+                        <% if(i < 5){ %>
+                                    <div class="show-area">
+                                        <p>Date:
+                                        <p class="date-inside">
+                                            <%= todos[i].Date.toLocaleDateString('en-GB') %>
+                                        </p>
+                                        </p>
+                                        <p>Task:
+                                        <p class="task-inside"> <%= todos[i].task %>
+                                        </p>
+                                        </p>
+                                        <p>Status:
+                                        <p class="status-inside"><%= todos[i].statustype %>
+                                        </p>
+                                        </p>
+                                        <div class="op-area">
+                                            <form action="/input/<%= todos[i].id %>" method="GET">
+                                                <button class="btn-s"><img src="/public/assets/setting.png" alt="" class="set-btn"></button>
+                                            </form>
+                                            <form action="/input/<%= todos[i].id %>/delete" method="GET">
+                                                <button class="btn-d"><img src="/public/assets/bin.png" class="bin" alt=""></button>
+                                            </form>
+                                        </div>   
+                        <% } %>                    
+             <% } else if(todos[i].statustype === "Done") {%>
+                   
+                        <% if(i < 5){ %>
+                                    <div class="show-area">
+                                            <p>Date:
+                                            <p class="date-inside">
+                                                    <%= todos[i].Date.toLocaleDateString('en-GB') %>
+                                            </p>
+                                            </p>
+                                            <p>Task:
+                                            <p class="task-inside"> <%= todos[i].task %>
+                                            </p>
+                                            </p>
+                                            <p>Status:
+                                            <p class="status-inside"><%= todos[i].statustype %>
+                                            </p>
+                                            </p>
+                                            <div class="op-area">
+                                                <form action="/input/<%= todos[i].id %>" method="GET">
+                                                    <button class="btn-s"><img src="/public/assets/setting.png" alt="" class="set-btn"></button>
+                                                </form>
+                                                <form action="/input/<%= todos[i].id %>/delete" method="GET">
+                                                    <button class="btn-d"><img src="/public/assets/bin.png" class="bin" alt=""></button>
+                                                </form>
+                                            </div>
+                                    </div>
+                        <% }%>       
+               <% } %>
+        <% } %>                                                   
+        </div> 
+
+    </div>
+</body>
+
+</html>
