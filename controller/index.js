@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { Todo } from "../model/index.js";
-
+import { statusobj } from "../helpers/ejs-index.js";
 
 
 const router = Router(); 
@@ -16,7 +16,9 @@ router.get("/",  async (req,res) => {
         const todos = await Todo.find().exec();
         
         res.render('index', {
-           todos: todos    //why only two todo possible
+           todos: todos,
+           statusobj:statusobj  
+
         
            
         })

@@ -50,7 +50,6 @@
                 <br>
                 <button class="submit">Submit</button>
             </form>
-            <form action="/input-page/<% todos.id %>"></form>
             <hr>
         </div>
     </div>
@@ -62,11 +61,12 @@
             <div class="open-title-area">
                 <h1>Open</h1>
                 <hr>       
-            </div>
+            <div class="obj-area"><%- statusobj(todos) %></div>
+            
         </div>
         <div class="process-area">
             <div class="process-title-area">
-                 <h1>In Process</h1>
+       g          <h1>In Process</h1>
                  <hr>
             </div>
         </div>
@@ -82,92 +82,6 @@
 
 
 
-    <% for(let i=0; i < todos.length; i++) { %>
-            <% if (todos[i].statustype === "Open") { %>
-                
-                        <% if(i < 5){ %>
-                            <div class="show-area">
-                                <p>Date:
-                                <p class="date-inside">
-                                    <%= todos[i].Date.toLocaleDateString('en-GB') %>
-                                </p>
-                                </p>
-                                <p>Task:
-                                <p class="task-inside"> <%= todos[i].task %>
-                                </p>
-                                </p>
-                                <p>Status:
-                                <p class="status-inside"><%= todos[i].statustype %>
-                                </p>
-                                </p>
-                                <div class="op-area">
-                                    <form action="/input/<%= todos[i].id %>" method="GET">
-                                        <button class="btn-s"><img src="/public/assets/setting.png" alt="" class="set-btn"></button>
-                                    </form>
-                                    <form action="/input/<%= todos[i].id %>/delete" method="GET">
-                                        <button class="btn-d"><img src="/public/assets/bin.png" class="bin" alt=""></button>
-                                    </form>
-                            </div>
-                 
-                        <% } %> 
-               
-             <% } else if(todos[i].statustype === "Process"){%>
-                        <% if(i < 5){ %>
-                                    <div class="show-area">
-                                        <p>Date:
-                                        <p class="date-inside">
-                                            <%= todos[i].Date.toLocaleDateString('en-GB') %>
-                                        </p>
-                                        </p>
-                                        <p>Task:
-                                        <p class="task-inside"> <%= todos[i].task %>
-                                        </p>
-                                        </p>
-                                        <p>Status:
-                                        <p class="status-inside"><%= todos[i].statustype %>
-                                        </p>
-                                        </p>
-                                        <div class="op-area">
-                                            <form action="/input/<%= todos[i].id %>" method="GET">
-                                                <button class="btn-s"><img src="/public/assets/setting.png" alt="" class="set-btn"></button>
-                                            </form>
-                                            <form action="/input/<%= todos[i].id %>/delete" method="GET">
-                                                <button class="btn-d"><img src="/public/assets/bin.png" class="bin" alt=""></button>
-                                            </form>
-                                        </div>   
-                        <% } %>                    
-             <% } else if(todos[i].statustype === "Done") {%>
-                   
-                        <% if(i < 5){ %>
-                                    <div class="show-area">
-                                            <p>Date:
-                                            <p class="date-inside">
-                                                    <%= todos[i].Date.toLocaleDateString('en-GB') %>
-                                            </p>
-                                            </p>
-                                            <p>Task:
-                                            <p class="task-inside"> <%= todos[i].task %>
-                                            </p>
-                                            </p>
-                                            <p>Status:
-                                            <p class="status-inside"><%= todos[i].statustype %>
-                                            </p>
-                                            </p>
-                                            <div class="op-area">
-                                                <form action="/input/<%= todos[i].id %>" method="GET">
-                                                    <button class="btn-s"><img src="/public/assets/setting.png" alt="" class="set-btn"></button>
-                                                </form>
-                                                <form action="/input/<%= todos[i].id %>/delete" method="GET">
-                                                    <button class="btn-d"><img src="/public/assets/bin.png" class="bin" alt=""></button>
-                                                </form>
-                                            </div>
-                                    </div>
-                        <% }%>       
-               <% } %>
-        <% } %>                                                   
-        </div> 
-
-    </div>
 </body>
 
 </html>
