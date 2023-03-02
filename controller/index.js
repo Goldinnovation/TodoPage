@@ -3,6 +3,7 @@ import { Todo } from "../model/index.js";
 import { statusObjOpen } from "../helpers/ejs-index.js";
 import { statusObjProcess } from "../helpers/ejs-index.js";
 import { statusObjDone } from "../helpers/ejs-index.js";
+import { limitBanner } from "../helpers/ejs-index.js";
 
 const router = Router(); 
 
@@ -20,7 +21,9 @@ router.get("/",  async (req,res) => {
            todos: todos,
            statusObjOpen: statusObjOpen,
            statusObjProcess: statusObjProcess,
-           statusObjDone: statusObjDone 
+           statusObjDone: statusObjDone, 
+           limitBanner: limitBanner
+           
            
         })
         

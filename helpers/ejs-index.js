@@ -118,3 +118,18 @@ export const statusObjDone = (todos) => {
    return html
 }
 
+
+export const limitBanner = (todos) => {
+    let html = '';
+    for( let i = 0; i < todos.length; i++)
+    {
+        if(i === 14){
+            html += `
+            <div class="limit-word">
+                <p>I'm sorry but you have reached the limit :/</p>
+            </div>
+            `;
+        }
+    }
+    return html
+};
