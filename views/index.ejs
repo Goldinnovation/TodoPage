@@ -61,24 +61,34 @@
             <div class="open-title-area">
                 <h1>Open</h1>
                 <hr>       
-            <div class="obj-area"><%- statusobj(todos) %></div>
-            
+                <div class="obj-area">
+                    <%- statusObjOpen(todos) %>
+                </div>  
+            </div>
         </div>
         <div class="process-area">
             <div class="process-title-area">
-       g          <h1>In Process</h1>
+                 <h1>In Process</h1>
                  <hr>
+                 <div class="obj-area">
+                    
+                    <%- statusObjProcess(todos) %>
+                </div> 
             </div>
         </div>
 
         <div class="done-area">
             <div class="done-title-area">
                <h1>Done</h1>
-              <hr>       
+              <hr>     
+              <div class="obj-area">
+                    
+                <%- statusObjDone(todos) %>
+            </div>   
             </div>
         </div>  
-
-        <!-- end of status area  -->
+    </div>
+ 
 
 
 

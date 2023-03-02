@@ -12,6 +12,7 @@ import router from "./index.js";
 router.get('/input/:id', async (req,res) => {
     try{
         const id = req.params.id
+        
         const todos = await Todo.findOne({id: id}).exec()
       
         res.render('edit',{
@@ -48,10 +49,12 @@ router.post("/input/:id", async (req,res) => {
 
 router.get("/input/:id/delete", async (req,res) => {
     try{
-        const id = req.body.id
-        await Todo.findOneAndDelete({id:id})
-        res.redirect('/')
 
+        const id = req.params.id
+        console.log(id)
+        await Todo.findOneAndDelete({_id:id})
+        res.redirect('/')
+        
     }catch(error){
         console.error(error)
         res.send('404: Error')

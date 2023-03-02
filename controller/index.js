@@ -1,7 +1,8 @@
 import { Router } from "express";
 import { Todo } from "../model/index.js";
-import { statusobj } from "../helpers/ejs-index.js";
-
+import { statusObjOpen } from "../helpers/ejs-index.js";
+import { statusObjProcess } from "../helpers/ejs-index.js";
+import { statusObjDone } from "../helpers/ejs-index.js";
 
 const router = Router(); 
 
@@ -17,9 +18,9 @@ router.get("/",  async (req,res) => {
         
         res.render('index', {
            todos: todos,
-           statusobj:statusobj  
-
-        
+           statusObjOpen: statusObjOpen,
+           statusObjProcess: statusObjProcess,
+           statusObjDone: statusObjDone 
            
         })
         
@@ -52,7 +53,7 @@ router.post('/',  async (req,res) => {
     })
     Todo.find({})
         .then(countodo => {
-            if(countodo.length < 5) {
+            if(countodo.length < 15) {
                  todo.save()
                  console.log(countodo.length)
             }
