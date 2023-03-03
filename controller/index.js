@@ -4,6 +4,7 @@ import { statusObjOpen } from "../helpers/ejs-index.js";
 import { statusObjProcess } from "../helpers/ejs-index.js";
 import { statusObjDone } from "../helpers/ejs-index.js";
 import { limitBanner } from "../helpers/ejs-index.js";
+import { editarea } from "../helpers/ejs.edit.js";
 
 const router = Router(); 
 
@@ -18,11 +19,15 @@ router.get("/",  async (req,res) => {
         const todos = await Todo.find().exec();
         
         res.render('index', {
+           page: 'page1',
            todos: todos,
            statusObjOpen: statusObjOpen,
            statusObjProcess: statusObjProcess,
            statusObjDone: statusObjDone, 
-           limitBanner: limitBanner
+           limitBanner: limitBanner, 
+           editarea:editarea
+           
+           
            
            
         })
@@ -65,6 +70,31 @@ router.post('/',  async (req,res) => {
     console.log("test");
     res.redirect('/')
 })
+
+router.get('/input/:id', async (req,res) => {
+    try{
+        const id = req.params.id
+        
+        const todos = await Todo.find().exec();
+        const todosup = await Todo.findOne({_id: id}).exec()
+      
+        res.render('index',{
+            page: 'page2',
+            todos:todos,
+            todosup: todosup,
+            statusObjOpen: statusObjOpen,
+            statusObjProcess: statusObjProcess,
+            statusObjDone: statusObjDone, 
+            limitBanner: limitBanner,
+            editarea:editarea
+        })
+
+    } catch(error){
+        console.error(error)
+        res.status(404)
+    }
+})
+
 
 
 export default router

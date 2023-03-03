@@ -54,11 +54,15 @@
             
         </div>
     </div>
-    <div>
-        <div class="limit-area">
-            <%- limitBanner(todos) %>
-        </div> 
-    </div>
+
+    <% if(page === 'page2') { %>
+        <div>
+            <div class="edit-content-area">
+                <%- editarea(todosup)  %>
+            </div> 
+        </div>
+    <% } %>
+   
 
     <!-- --------------------------------------------- -->
     <!-- start of status area -->
@@ -94,6 +98,12 @@
             </div>
         </div>
         
+    </div>
+     
+    <div>
+        <div class="limit-area">
+            <%- limitBanner(todos) %>
+        </div> 
     </div>
  
 

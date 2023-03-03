@@ -1,6 +1,12 @@
 import { Router } from "express";
 import { Todo } from "../model/index.js";
 import router from "./index.js";
+import { statusObjDone } from "../helpers/ejs-index.js";
+import { statusObjOpen } from "../helpers/ejs-index.js";
+import { statusObjProcess } from "../helpers/ejs-index.js";
+import { limitBanner } from "../helpers/ejs-index.js";
+import { editarea } from "../helpers/ejs.edit.js";
+
 
 
 
@@ -9,14 +15,39 @@ import router from "./index.js";
 //  webpage, to edit the stored information. 
 // ---------------------------------------------------------------------------
 
+// router.get('/input/:id', async (req,res) => {
+//     try{
+//         const id = req.params.id
+        
+//         const todos = await Todo.findOne({id: id}).exec()
+      
+//         res.render('edit',{
+//             todos:todos
+//         })
+
+//     } catch(error){
+//         console.error(error)
+//         res.status(404)
+//     }
+// })
+
+
 router.get('/input/:id', async (req,res) => {
     try{
         const id = req.params.id
         
-        const todos = await Todo.findOne({id: id}).exec()
+        const todos = await Todo.find().exec();
+        const todosup = await Todo.findOne({_id: id}).exec()
       
-        res.render('edit',{
-            todos:todos
+        res.render('index',{
+            page: 'page2',
+            todos:todos,
+            todosup: todosup,
+            statusObjOpen: statusObjOpen,
+            statusObjProcess: statusObjProcess,
+            statusObjDone: statusObjDone, 
+            limitBanner: limitBanner,
+            editarea:editarea
         })
 
     } catch(error){
@@ -29,7 +60,7 @@ router.post("/input/:id", async (req,res) => {
     try{
         const id = req.params.id
         console.log(id)
-        const todos = await Todo.findOneAndUpdate({id: id},
+        const todosup = await Todo.findOneAndUpdate({_id: id},
             { task: req.body.task, 
              statustype: req.body.statustype
             }, {new: true} //we tell the model that we want the cariable to represent the new version of the cookie 
