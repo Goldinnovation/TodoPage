@@ -7,7 +7,7 @@ import mongoose from "mongoose";
 const inputShema = new mongoose.Schema({
     Date: {type:Date, required: Date.now}, 
     task: {type: String}, 
-    statustype: {type: String}
+    statustype: {type: String, required:true}
 
 })
 

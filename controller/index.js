@@ -5,8 +5,32 @@ import { statusObjProcess } from "../helpers/ejs-index.js";
 import { statusObjDone } from "../helpers/ejs-index.js";
 import { limitBanner } from "../helpers/ejs-index.js";
 import { editarea } from "../helpers/ejs.edit.js";
+import session from "express-session";
+import { db } from "../config/database.js";
+import MongoStore from "connect-mongo";
+import "dotenv/config";
+
 
 const router = Router(); 
+
+
+
+router.use(session({
+    secret: process.env.SECRET, 
+    resave:false, 
+    saveUninitialized: true, 
+    store: MongoStore.create(db), 
+    cookie: {
+        maxAge: 1000 * 60 *60 *24 
+         
+    },
+    ttl: 14 * 24 * 60 * 60, 
+    autoRemove: 'native'
+    // crypto: {
+    //     secret: 'squirrel'
+    // }
+
+}))
 
 
 //------------------------------------------------------------------------
@@ -14,6 +38,8 @@ const router = Router();
 // -----------------------------------------------------------------------
 
 router.get("/",  async (req,res) => {
+    
+  
     try{
         
         const todos = await Todo.find().exec();
@@ -25,10 +51,7 @@ router.get("/",  async (req,res) => {
            statusObjProcess: statusObjProcess,
            statusObjDone: statusObjDone, 
            limitBanner: limitBanner, 
-           editarea:editarea
-           
-           
-           
+           editarea:editarea 
            
         })
         
@@ -37,6 +60,7 @@ router.get("/",  async (req,res) => {
             Date: null
         })
     }
+
 })
 
 //------------------------------------------------------------------------
