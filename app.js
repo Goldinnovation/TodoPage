@@ -5,8 +5,9 @@ import mainpage from "./controller/index.js"
 import editPage from "./controller/edit.js"
 import { Todo } from "./model/index.js";
 import accountPage from "./controller/account.js"
-import signUpPage from "./controller/sign-up.js"
+import signUpPage from "./controller/register.js"
 import loginPage from "./controller/login.js"
+
 
 
 
@@ -26,4 +27,6 @@ app.use(editPage)
 app.use(accountPage)
 app.use(signUpPage)
 app.use(loginPage)
+
+
 // app.use(sessPage)

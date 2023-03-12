@@ -5,32 +5,37 @@ import { statusObjProcess } from "../helpers/ejs-index.js";
 import { statusObjDone } from "../helpers/ejs-index.js";
 import { limitBanner } from "../helpers/ejs-index.js";
 import { editarea } from "../helpers/ejs.edit.js";
-import session from "express-session";
-import { db } from "../config/database.js";
-import MongoStore from "connect-mongo";
-import "dotenv/config";
+import { RegistUser } from "../model/registuser.js";
+
+
+
 
 
 const router = Router(); 
 
 
+// ---------------------------------------------------------
+// sessions allows to track and implement code, for the http request of the
+// E.g => can create create condition for the cookie and asigns a session Id for the cookie 
 
-router.use(session({
-    secret: process.env.SECRET, 
-    resave:false, 
-    saveUninitialized: true, 
-    store: MongoStore.create(db), 
-    cookie: {
-        maxAge: 1000 * 60 *60 *24 
+
+// router.use(session({
+//     secret: process.env.SECRET, 
+//     resave:false, 
+//     saveUninitialized: true, 
+//     store: MongoStore.create(db), 
+//     cookie: {
+//         maxAge: 1000 * 60 *60 *24 
          
-    },
-    ttl: 14 * 24 * 60 * 60, 
-    autoRemove: 'native'
-    // crypto: {
-    //     secret: 'squirrel'
-    // }
+//     },
+//     ttl: 14 * 24 * 60 * 60, 
+//     autoRemove: 'native'
+//     // crypto: {
+//     //     secret: 'squirrel'
+//     // }
 
-}))
+// }))
+
 
 
 //------------------------------------------------------------------------
@@ -46,6 +51,7 @@ router.get("/",  async (req,res) => {
         
         res.render('index', {
            page: 'page1',
+           name: req.body.name, 
            todos: todos,
            statusObjOpen: statusObjOpen,
            statusObjProcess: statusObjProcess,
