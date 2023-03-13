@@ -7,6 +7,9 @@ import passport from 'passport';
 
 
 
+
+
+
 export function initialize(passport, getUserbyEmail, getUserbyId){
 
     // creating an arrow function which acts as middleware for user authentication
@@ -17,9 +20,6 @@ export function initialize(passport, getUserbyEmail, getUserbyId){
         }
 
         try{
-            console.log(user)
-            console.log(user.password)
-            console.log(password)
             
          if (await bcrypt.compare(password, user.password)){
              return done(null, user)

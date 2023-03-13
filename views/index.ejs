@@ -11,19 +11,29 @@
 
 <body>
     <header>
-        <nav class="prof-area">
+        <div class="weblog">
+            <h1>weblogo</h1>
+        </div>
+        <div class="prof-area">
+
             <div class="prof-image">
 
             </div>
             <div class="prof-name">
-                    <h2>User name</h2>
+                    <h2> <%= nameobj %> </h2>
                     
             </div>
-        </nav>
+        </div> 
+        <div class="log-outarea">
+            <form action="/logout?_method=DELETE" method="POST">
+                <button type="sumbit">logout</button>
+            </form>
+        </div> 
     </header>
+    
+
     <hr>
     <div class="content-area">
-
         <div class="in-area">
             <nav class="nav-area">
                 <h2>To-do-List</h2>
@@ -57,11 +67,12 @@
 
     <% if(page === 'page2') { %>
         <div>
+            
             <div class="edit-content-area">
                 <%- editarea(todosup)  %>
             </div> 
         </div>
-    <% } %>
+    <% }  %>
    
 
     <!-- --------------------------------------------- -->

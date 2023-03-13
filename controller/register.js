@@ -1,6 +1,7 @@
 import { Router } from "express";
 import bcrypt  from "bcrypt";
 import { RegistUser } from "../model/registuser.js";
+import { checkNotAuth } from "../Middleware/notAuth.js";
 
 
 const router = Router(); 
@@ -10,7 +11,7 @@ const router = Router();
 // -------------------------------------------------
 // Sign up btn - redirect
 
-router.get("/sign-up", (req,res) => {
+router.get("/sign-up", checkNotAuth, (req,res) => {
 
     res.render("register")
 })
@@ -22,7 +23,7 @@ router.get("/sign-up", (req,res) => {
 
 
 
-router.post("/Sign-up-process", async(req,res) => {
+router.post("/Sign-up-process", checkNotAuth, async(req,res) => {
 
     try{
         const hashedpw = await bcrypt.hash(req.body.password, 10)

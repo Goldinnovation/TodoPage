@@ -33,6 +33,9 @@ import { editarea } from "../helpers/ejs.edit.js";
 
 
 router.get('/input/:id', async (req,res) => {
+    const userData = await req.user
+  
+
     try{
         const id = req.params.id
         
@@ -41,6 +44,7 @@ router.get('/input/:id', async (req,res) => {
       
         res.render('index',{
             page: 'page2',
+            nameobj: userData.name,
             todos:todos,
             todosup: todosup,
             statusObjOpen: statusObjOpen,

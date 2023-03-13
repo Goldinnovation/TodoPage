@@ -6,6 +6,12 @@ import { statusObjDone } from "../helpers/ejs-index.js";
 import { limitBanner } from "../helpers/ejs-index.js";
 import { editarea } from "../helpers/ejs.edit.js";
 import { RegistUser } from "../model/registuser.js";
+import { initialize } from "../config/passport.js"
+import passport from "passport";
+import { checkAuthentication } from "../MIddleware/checkAuth.js";
+
+
+
 
 
 
@@ -37,21 +43,20 @@ const router = Router();
 // }))
 
 
-
 //------------------------------------------------------------------------
 //  The get method renders the mainpage on 
 // -----------------------------------------------------------------------
 
-router.get("/",  async (req,res) => {
+router.get("/", checkAuthentication,  async (req,res) => {
     
-  
+    const userData = await req.user
+    
     try{
         
         const todos = await Todo.find().exec();
-        
         res.render('index', {
-           page: 'page1',
-           name: req.body.name, 
+           page: 'page1', 
+           nameobj: userData.name,
            todos: todos,
            statusObjOpen: statusObjOpen,
            statusObjProcess: statusObjProcess,
@@ -89,7 +94,7 @@ router.post('/',  async (req,res) => {
         statustype: to_status
 
     })
-    Todo.find({})
+    await Todo.find({})
         .then(countodo => {
             if(countodo.length < 15) {
                  todo.save()
@@ -101,30 +106,13 @@ router.post('/',  async (req,res) => {
     res.redirect('/')
 })
 
-router.get('/input/:id', async (req,res) => {
-    try{
-        const id = req.params.id
-        
-        const todos = await Todo.find().exec();
-        const todosup = await Todo.findOne({_id: id}).exec()
-      
-        res.render('index',{
-            page: 'page2',
-            todos:todos,
-            todosup: todosup,
-            statusObjOpen: statusObjOpen,
-            statusObjProcess: statusObjProcess,
-            statusObjDone: statusObjDone, 
-            limitBanner: limitBanner,
-            editarea:editarea
-        })
 
-    } catch(error){
-        console.error(error)
-        res.status(404)
-    }
-})
-
+router.delete("/logout", function(req, res, next) {
+    req.logout(function(err) {
+      if (err) { return next(err); }
+      res.redirect("/");
+    });
+  });
 
 
 export default router

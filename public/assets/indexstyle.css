@@ -1,25 +1,40 @@
 body{
     background-color: rgba(0, 0, 0, 0.807);
     
+    
 }
 /* ------------------------------------------- */
-    /* header area with user image and name */
+    /* header area with user Brandlogo, image and logout */
 /* ------------------------------------------------ */
 
 header{
-    background: none;
+    
     height: 200px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+   
+}
+
+header .log-outarea{
+    background-color: aqua;
+    align-items: center;
+    
+}
+
+.weblog{
+    color: white;
+  
 }
 
 .prof-area{
     background-color: brown;
-    width: 220px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-right: 3%;
 }
 .prof-image{
     background-color: rgb(125, 94, 154);
@@ -32,6 +47,7 @@ header{
 
 .prof-name{
    background: none;
+   color: white;
 }
 
 /* ------------------------------------------- */
