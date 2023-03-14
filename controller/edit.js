@@ -63,7 +63,7 @@ router.get('/input/:id', async (req,res) => {
 router.post("/input/:id", async (req,res) => {
     try{
         const id = req.params.id
-        console.log(id)
+       
         const todosup = await Todo.findOneAndUpdate({_id: id},
             { task: req.body.task, 
              statustype: req.body.statustype

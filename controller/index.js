@@ -9,7 +9,7 @@ import { RegistUser } from "../model/registuser.js";
 import { initialize } from "../config/passport.js"
 import passport from "passport";
 import { checkAuthentication } from "../MIddleware/checkAuth.js";
-
+import { Imagecollection } from "../model/Avatar.js";
 
 
 
@@ -20,29 +20,6 @@ import { checkAuthentication } from "../MIddleware/checkAuth.js";
 const router = Router(); 
 
 
-// ---------------------------------------------------------
-// sessions allows to track and implement code, for the http request of the
-// E.g => can create create condition for the cookie and asigns a session Id for the cookie 
-
-
-// router.use(session({
-//     secret: process.env.SECRET, 
-//     resave:false, 
-//     saveUninitialized: true, 
-//     store: MongoStore.create(db), 
-//     cookie: {
-//         maxAge: 1000 * 60 *60 *24 
-         
-//     },
-//     ttl: 14 * 24 * 60 * 60, 
-//     autoRemove: 'native'
-//     // crypto: {
-//     //     secret: 'squirrel'
-//     // }
-
-// }))
-
-
 //------------------------------------------------------------------------
 //  The get method renders the mainpage on 
 // -----------------------------------------------------------------------
@@ -50,19 +27,22 @@ const router = Router();
 router.get("/", checkAuthentication,  async (req,res) => {
     
     const userData = await req.user
+    const imgData = await Imagecollection.findOne().exec()
+    const todos = await Todo.find().exec();
     
     try{
-        
-        const todos = await Todo.find().exec();
+       
         res.render('index', {
            page: 'page1', 
            nameobj: userData.name,
            todos: todos,
+           imgD: imgData,
            statusObjOpen: statusObjOpen,
            statusObjProcess: statusObjProcess,
            statusObjDone: statusObjDone, 
            limitBanner: limitBanner, 
-           editarea:editarea 
+           editarea:editarea, 
+           
            
         })
         

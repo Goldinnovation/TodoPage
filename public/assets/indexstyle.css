@@ -14,6 +14,7 @@ header{
     justify-content: space-between;
     text-align: center;
     align-items: center;
+    padding-top: 1%;
    
 }
 
@@ -30,19 +31,38 @@ header .log-outarea{
 
 .prof-area{
     background-color: brown;
+    height: 300px;
+    width:400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-right: 3%;
 }
+
+.upload-btn{
+    
+    display: none;
+
+
+
+}
+
+.read-btn{
+    background: none;
+    border: none;
+    position: absolute;
+    top: 8%;
+    left: 53%;
+}
 .prof-image{
-    background-color: rgb(125, 94, 154);
+    background-color: yellow;
     height: 115px;
     width: 115px;
     border: 1px solid black;
     border-radius: 150px;
     margin-top: 1%;
+   
 }
 
 .prof-name{

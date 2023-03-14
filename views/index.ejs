@@ -16,8 +16,27 @@
         </div>
         <div class="prof-area">
 
-            <div class="prof-image">
-
+            
+           <div>
+            <% if(imgD) { %>
+                <% for( let i = 0; i < imgD.length; i++) { %>
+                    <% console.log(imgD[i].path) %>
+                    <div class="prof-image">
+                        <img src="/<%- imgD[i].path %>" alt="Pic not found">
+                        <% console.log(imgD) %>
+                    </div>
+                 <% } %>
+           <% } %>
+            
+           </div>
+            <div class="up-btn-area">
+                <button class="read-btn"><img src="/public/assets/camera.png" alt=""></button>
+                <br>
+                <form action="/uploadimage" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="avatar" class="upload-btn" hidden>
+                    <button > submit</button>
+                </form>
+                
             </div>
             <div class="prof-name">
                     <h2> <%= nameobj %> </h2>
@@ -118,8 +137,19 @@
     </div>
  
 
+    <script>
+
+        var upload = document.querySelector('.upload-btn'); 
+        var newbtn = document.querySelector('.read-btn')
+
+        newbtn.onclick = ()=> {
+            upload.click();
+        }
+
+</script>
+
+
 
 
 </body>
-
 </html>

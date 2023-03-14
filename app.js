@@ -12,6 +12,7 @@ import session from "express-session";
 import passport from "passport";
 import MongoStore from "connect-mongo";
 import methodOverride from 'method-override'
+import upladimage from './controller/Avatar.js'
 
 
 
@@ -53,5 +54,5 @@ app.use(editPage)
 app.use(accountPage)
 app.use(signUpPage)
 app.use(loginPage)
-
+app.use(upladimage)
 
