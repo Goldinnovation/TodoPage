@@ -12,7 +12,7 @@ header{
     height: 200px;
     display: flex;
     justify-content: space-between;
-    text-align: center;
+    
     align-items: center;
     padding-top: 1%;
    
@@ -56,13 +56,23 @@ header .log-outarea{
     left: 53%;
 }
 .prof-image{
-    background-color: yellow;
+    
+    background: cover;
     height: 115px;
     width: 115px;
-    border: 1px solid black;
     border-radius: 150px;
     margin-top: 1%;
+
+
    
+}
+
+.user-prof-img{
+    
+    width: 120px;
+    height: 120px;
+    border: 1px solid black; 
+    border-radius: 20%;
 }
 
 .prof-name{

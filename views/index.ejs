@@ -16,14 +16,13 @@
         </div>
         <div class="prof-area">
 
-            
            <div>
+            
             <% if(imgD) { %>
                 <% for( let i = 0; i < imgD.length; i++) { %>
-                    <% console.log(imgD[i].path) %>
                     <div class="prof-image">
-                        <img src="/<%- imgD[i].path %>" alt="Pic not found">
-                        <% console.log(imgD) %>
+                        <img src="<%= '/public/uploadStack/' + imgD[i].path%>" class="user-prof-img"  name="profpic" alt="Pic not found">
+                        
                     </div>
                  <% } %>
            <% } %>

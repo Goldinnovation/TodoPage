@@ -6,7 +6,7 @@ import { statusObjOpen } from "../helpers/ejs-index.js";
 import { statusObjProcess } from "../helpers/ejs-index.js";
 import { limitBanner } from "../helpers/ejs-index.js";
 import { editarea } from "../helpers/ejs.edit.js";
-
+import { Imagecollection } from "../model/Avatar.js";
 
 
 
@@ -38,14 +38,16 @@ router.get('/input/:id', async (req,res) => {
 
     try{
         const id = req.params.id
-        
+        const imgData = await Imagecollection.find().exec();
         const todos = await Todo.find().exec();
         const todosup = await Todo.findOne({_id: id}).exec()
-      
+    
+        console.log(imgData)
         res.render('index',{
             page: 'page2',
             nameobj: userData.name,
             todos:todos,
+            imgD: imgData,
             todosup: todosup,
             statusObjOpen: statusObjOpen,
             statusObjProcess: statusObjProcess,

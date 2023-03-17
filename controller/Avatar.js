@@ -18,11 +18,11 @@ const upload = multer({dest: join(__dirname, "uploadStack")});
 var storage =  multer.diskStorage({
     
     destination: function(req, file,cb){
-        cb(null, "./uploadStack")
+        cb(null, "./public/uploadStack")
     }, 
     filename: function(req, file, cb){
-       
-        cb(null, file.fieldname + "-" + Date.now( + ".jpeg/png"))
+        
+        cb(null, file.originalname)
     }
 
 })
@@ -33,7 +33,7 @@ var storage =  multer.diskStorage({
  export var uploadfile = multer({storage: storage}).single('avatar'); 
 
 
-const arr = []
+
 
 router.post("/uploadimage", uploadfile, async(req,res) => {
 
@@ -46,7 +46,7 @@ router.post("/uploadimage", uploadfile, async(req,res) => {
             var data = {
                 path: req.file.originalname
             } 
-            arr.push(data)
+           
             await Imagecollection.insertMany([data])
         }
         else{

@@ -8,7 +8,7 @@ import { editarea } from "../helpers/ejs.edit.js";
 import { RegistUser } from "../model/registuser.js";
 import { initialize } from "../config/passport.js"
 import passport from "passport";
-import { checkAuthentication } from "../MIddleware/checkAuth.js";
+import { checkAuthentication } from "../Middleware/checkAuth.js";
 import { Imagecollection } from "../model/Avatar.js";
 
 
@@ -27,21 +27,21 @@ const router = Router();
 router.get("/", checkAuthentication,  async (req,res) => {
     
     const userData = await req.user
-    const imgData = await Imagecollection.findOne().exec()
     const todos = await Todo.find().exec();
-    
+    const imgData = await Imagecollection.find().exec();
+  
     try{
        
         res.render('index', {
            page: 'page1', 
            nameobj: userData.name,
-           todos: todos,
+           todos: todos, 
            imgD: imgData,
            statusObjOpen: statusObjOpen,
            statusObjProcess: statusObjProcess,
            statusObjDone: statusObjDone, 
            limitBanner: limitBanner, 
-           editarea:editarea, 
+           editarea:editarea
            
            
         })
