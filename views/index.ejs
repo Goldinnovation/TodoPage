@@ -16,18 +16,10 @@
         </div>
         <div class="prof-area">
 
-           <div>
-            
-            <% if(imgD) { %>
-                <% for( let i = 0; i < imgD.length; i++) { %>
-                    <div class="prof-image">
-                        <img src="<%= '/public/uploadStack/' + imgD[i].path%>" class="user-prof-img"  name="profpic" alt="Pic not found">
-                        
-                    </div>
-                 <% } %>
-           <% } %>
-            
-           </div>
+           <div> <%- checkProfImg(imgD) %>
+               
+            </div>
+          
             <div class="up-btn-area">
                 <button class="read-btn"><img src="/public/assets/camera.png" alt=""></button>
                 <br>

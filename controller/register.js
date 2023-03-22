@@ -2,6 +2,8 @@ import { Router } from "express";
 import bcrypt  from "bcrypt";
 import { RegistUser } from "../model/registuser.js";
 import { checkNotAuth } from "../Middleware/notAuth.js";
+import { pwcheck } from "../Middleware/pwcheck.js";
+import { checkmessage } from "../helpers/ejs-pwmessage.js";
 
 
 const router = Router(); 
@@ -12,8 +14,13 @@ const router = Router();
 // Sign up btn - redirect
 
 router.get("/sign-up", checkNotAuth, (req,res) => {
-
-    res.render("register")
+    const errorM = req.flash('errorM')
+    res.render("register", 
+    {   errorM, 
+        checkmessage:checkmessage
+    
+    }
+    )
 })
 
 
@@ -23,7 +30,7 @@ router.get("/sign-up", checkNotAuth, (req,res) => {
 
 
 
-router.post("/Sign-up-process", checkNotAuth, async(req,res) => {
+router.post("/Sign-up-process", pwcheck, checkNotAuth, async(req,res) => {
 
     try{
         const hashedpw = await bcrypt.hash(req.body.password, 10)

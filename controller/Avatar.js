@@ -1,4 +1,4 @@
-import { Router } from "express";
+import e, { Router } from "express";
 import multer from "multer";
 import { Imagecollection } from "../model/Avatar.js";
 import {dirname, join } from "path";  
@@ -46,8 +46,11 @@ router.post("/uploadimage", uploadfile, async(req,res) => {
             var data = {
                 path: req.file.originalname
             } 
-           
-            await Imagecollection.insertMany([data])
+          
+          
+                await Imagecollection.insertMany([data])
+          
+            
         }
         else{
             res.send('invalid file')
@@ -57,6 +60,7 @@ router.post("/uploadimage", uploadfile, async(req,res) => {
         console.log(e)
     }
    
+    req.flash('NoCap', "no space left for more image")
     res.redirect('/')
 
 })

@@ -10,6 +10,7 @@ import { initialize } from "../config/passport.js"
 import passport from "passport";
 import { checkAuthentication } from "../Middleware/checkAuth.js";
 import { Imagecollection } from "../model/Avatar.js";
+import { checkProfImg } from "../helpers/ejs-img.js";
 
 
 
@@ -24,19 +25,31 @@ const router = Router();
 //  The get method renders the mainpage on 
 // -----------------------------------------------------------------------
 
-router.get("/", checkAuthentication,  async (req,res) => {
+router.get("/", checkAuthentication, async (req,res) => {
     
     const userData = await req.user
     const todos = await Todo.find().exec();
     const imgData = await Imagecollection.find().exec();
-  
+     
+    //  idea how to stop the image from 
+    // function checkln(imgData){
+    //     if(imgData.length < 2){
+    //         console.log('easy')
+    //     }else{
+    //         req.flash('NoCap')
+    //         console.log('tomuch')
+    //     }  
+    // }
     try{
-       
+
+      const Nocapacity = req.flash('NoCap')
         res.render('index', {
            page: 'page1', 
            nameobj: userData.name,
-           todos: todos, 
+           todos: todos,
            imgD: imgData,
+           NoCap: Nocapacity,
+           checkProfImg: checkProfImg,
            statusObjOpen: statusObjOpen,
            statusObjProcess: statusObjProcess,
            statusObjDone: statusObjDone, 
