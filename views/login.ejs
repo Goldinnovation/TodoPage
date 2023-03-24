@@ -8,17 +8,22 @@
     <link rel="stylesheet" href="/public/assets/login.css">
 </head>
 <body>
+    <!-- Login Page -->
     <div class="log-area-con">
+
+        <!-- Flash failure message -->
         <h2>Welcome</h2>
         <% if (messages.error) { %>
             <%= messages.error  %>
         <% } %>
+        
+        <!--  Input options for login page-->
         <form action="/login" method="POST">
-            
             <input type="email" name="logemail" placeholder="Email" >
             <input type="password" name="password" placeholder="password" >
             <button>Submit</button>
         </form>
+
         <p>No account ? <a href="/sign-up">Register</a></p>
     </div>
    

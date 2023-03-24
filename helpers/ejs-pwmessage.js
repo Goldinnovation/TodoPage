@@ -1,4 +1,5 @@
 
+// renders the password message: Through missing password requirements 
 export const checkmessage = (errorM) =>{
     let html = '';
     if(errorM.length === 1 ){

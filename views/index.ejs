@@ -2,145 +2,131 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/public/assets/indexstyle.css" type="text/css">
+    <link rel="stylesheet" href="/public/assets/indexstyle.css" type="text/css" />
 </head>
 
 <body>
+
+    <!-- Header area -->
     <header>
         <div class="weblog">
             <h1>weblogo</h1>
         </div>
         <div class="prof-area">
-
-           <div> <%- checkProfImg(imgD) %>
-               
-            </div>
-          
+            <div><%- checkProfImg(imgD) %></div>
             <div class="up-btn-area">
-                <button class="read-btn"><img src="/public/assets/camera.png" alt=""></button>
-                <br>
+                <button class="read-btn">
+                    <img src="/public/assets/camera.png" alt="" />
+                </button>
+                <br />
                 <form action="/uploadimage" method="POST" enctype="multipart/form-data">
-                    <input type="file" name="avatar" class="upload-btn" hidden>
-                    <button > submit</button>
+                    <input type="file" name="avatar" class="upload-btn" hidden />
+                    <button>submit</button>
                 </form>
-                
             </div>
             <div class="prof-name">
-                    <h2> <%= nameobj %> </h2>
-                    
+                <h2>
+                    <%= nameobj %>
+                </h2>
             </div>
-        </div> 
+        </div>
         <div class="log-outarea">
             <form action="/logout?_method=DELETE" method="POST">
                 <button type="sumbit">logout</button>
             </form>
-        </div> 
+        </div>
     </header>
-    
+    <!-- End of Header area -->
 
-    <hr>
+    <!-- Create a To-do object area -->
+    <hr />
     <div class="content-area">
         <div class="in-area">
             <nav class="nav-area">
                 <h2>To-do-List</h2>
-                <hr>
+                <hr />
             </nav>
 
             <form action="/" method="POST" class="do-form">
                 <label for="date">Date</label>
 
-                <input type="date" name="Date" id="date" required>
+                <input type="date" name="Date" id="date" required />
 
                 <label for="task">Task</label>
 
-                <input type="text" name="task" id="task" placeholder="Enter a Task">
+                <input type="text" name="task" id="task" placeholder="Enter a Task" />
 
                 <label for="statustype">Status</label>
 
-                <input list="status" name="statustype" id="statustype" placeholder="Status" required>
+                <input list="status" name="statustype" id="statustype" placeholder="Status" required />
                 <datalist id="status">
                     <option value="Open">Open</option>
                     <option value="Process">Process</option>
                     <option value="Done">Done</option>
                 </datalist>
-                <br>
+                <br />
                 <button class="submit">Submit</button>
             </form>
-            <hr>
-            
+            <hr />
         </div>
     </div>
+    <!-- End of create area -->
 
-    <% if(page === 'page2') { %>
+
+     <!-- Edit area option -->
+    <% if(page==='page2' ) { %>
         <div>
-            
-            <div class="edit-content-area">
-                <%- editarea(todosup)  %>
-            </div> 
+            <div class="edit-content-area"><%- editarea(todosup) %></div>
         </div>
-    <% }  %>
-   
+        <% } %>
+    <!-- End of edit area -->
 
-    <!-- --------------------------------------------- -->
+
     <!-- start of status area -->
     <div class="status-area">
         <div class="inopen-area">
             <div class="open-title-area">
                 <h1>Open</h1>
-                <hr>       
-                <div class="obj-area">
-                    <%- statusObjOpen(todos) %>
-                </div>  
+                <hr />
+                <div class="obj-area"><%- statusObjOpen(todos) %></div>
             </div>
         </div>
         <div class="process-area">
             <div class="process-title-area">
-                 <h1>In Process</h1>
-                 <hr>
-                 <div class="obj-area">
-                    
-                    <%- statusObjProcess(todos) %>
-                </div> 
+                <h1>In Process</h1>
+                <hr />
+                <div class="obj-area"><%- statusObjProcess(todos) %></div>
             </div>
         </div>
 
         <div class="done-area">
             <div class="done-title-area">
-               <h1>Done</h1>
-              <hr>     
-              <div class="obj-area">
-                    
-                <%- statusObjDone(todos) %>
-            </div>   
+                <h1>Done</h1>
+                <hr />
+                <div class="obj-area"><%- statusObjDone(todos) %></div>
             </div>
         </div>
-        
     </div>
-     
+
     <div>
-        <div class="limit-area">
-            <%- limitBanner(todos) %>
-        </div> 
+        <div class="limit-area"><%- limitBanner(todos) %></div>
     </div>
- 
 
+    <!-- Click button area -->
     <script>
+        var upload = document.querySelector(".upload-btn");
+        var newbtn = document.querySelector(".read-btn");
 
-        var upload = document.querySelector('.upload-btn'); 
-        var newbtn = document.querySelector('.read-btn')
-
-        newbtn.onclick = ()=> {
+        newbtn.onclick = () => {
             upload.click();
-        }
-
-</script>
-
-
-
-
+        };
+    </script>
+            
+            
 </body>
+
 </html>

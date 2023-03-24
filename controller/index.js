@@ -22,33 +22,27 @@ const router = Router();
 
 
 //------------------------------------------------------------------------
-//  The get method renders the mainpage on 
+//  Get method renders the mainpage on 
 // -----------------------------------------------------------------------
 
 router.get("/", checkAuthentication, async (req,res) => {
     
     const userData = await req.user
-    const todos = await Todo.find().exec();
-    const imgData = await Imagecollection.find().exec();
+    const todos = await Todo.find({userid: userData._id}).exec();
+    const imgData = await Imagecollection.find({userid: userData._id}).exec();
+  
+
      
-    //  idea how to stop the image from 
-    // function checkln(imgData){
-    //     if(imgData.length < 2){
-    //         console.log('easy')
-    //     }else{
-    //         req.flash('NoCap')
-    //         console.log('tomuch')
-    //     }  
-    // }
+   
     try{
 
-      const Nocapacity = req.flash('NoCap')
+      
+     
         res.render('index', {
            page: 'page1', 
            nameobj: userData.name,
            todos: todos,
            imgD: imgData,
-           NoCap: Nocapacity,
            checkProfImg: checkProfImg,
            statusObjOpen: statusObjOpen,
            statusObjProcess: statusObjProcess,
@@ -74,28 +68,33 @@ router.get("/", checkAuthentication, async (req,res) => {
 
 
 router.post('/',  async (req,res) => {
-  
+    
+    const userData = await req.user
     let to_date = req.body.Date
     let to_task = req.body.task
     let to_status = req.body.statustype
-    
+    let userid = userData._id
   
     const todo = new Todo(
         {
         Date: to_date, 
         task: to_task, 
-        statustype: to_status
+        statustype: to_status, 
+        userid: userid
+        
+        
+        
+        
 
     })
     await Todo.find({})
         .then(countodo => {
             if(countodo.length < 15) {
                  todo.save()
-                 console.log(countodo.length)
+                 
             }
         })
- 
-    console.log("test");
+
     res.redirect('/')
 })
 

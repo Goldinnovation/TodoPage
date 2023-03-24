@@ -37,14 +37,16 @@ var storage =  multer.diskStorage({
 
 router.post("/uploadimage", uploadfile, async(req,res) => {
 
-
+    const userData = await req.user
+    
     try{
         const fileMime = req.file.mimetype
         if((fileMime).split("/").pop() == "png" ||(fileMime).split("/").pop() == "jpg" 
         || (fileMime).split("/").pop() == "jpeg"){
             // create a path object
             var data = {
-                path: req.file.originalname
+                path: req.file.originalname,
+                userid: userData._id
             } 
           
           

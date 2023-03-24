@@ -15,6 +15,9 @@ import methodOverride from 'method-override'
 import upladimage from './controller/Avatar.js'
 
 
+// Rendering and connection area for the application 
+
+
 
 const app = express();
 

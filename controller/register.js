@@ -11,7 +11,10 @@ const router = Router();
 
 
 // -------------------------------------------------
-// Sign up btn - redirect
+// Get method for sign up page + renders pw flash message 
+// ----------------------------------------------
+
+
 
 router.get("/sign-up", checkNotAuth, (req,res) => {
     const errorM = req.flash('errorM')
@@ -26,8 +29,9 @@ router.get("/sign-up", checkNotAuth, (req,res) => {
 
 
 
-// --------------------------------------------------
-
+// ---------------------------------------------------------------------
+// Post btn encrypts the password input and uploads data in the database 
+// ----------------------------------------------------------------------
 
 
 router.post("/Sign-up-process", pwcheck, checkNotAuth, async(req,res) => {

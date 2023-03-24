@@ -1,4 +1,5 @@
 
+// renders the profil image
 export const checkProfImg = (imgD) =>{
     let html = '';
     if(imgD.length === 0) { 

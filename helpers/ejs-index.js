@@ -1,4 +1,5 @@
 
+// renders the To-do objects if status is on "Open"
 export const statusObjOpen = (todos) =>{
     let html = '';
      for(let i = 0; i < todos.length; i++){
@@ -38,7 +39,7 @@ export const statusObjOpen = (todos) =>{
     return html
 };
 
-
+// renders the To-do objects if status is on "Process" 
 export const statusObjProcess = (todos) => {
     let html = '';
     for(let i = 0; i < todos.length; i++){
@@ -78,6 +79,8 @@ export const statusObjProcess = (todos) => {
    return html
 
 }
+
+// renders the To-do objects if status is on "Done"
 export const statusObjDone = (todos) => {
     let html = '';
     for(let i = 0; i < todos.length; i++){
@@ -118,7 +121,7 @@ export const statusObjDone = (todos) => {
    return html
 }
 
-
+// renders the limit Banner 
 export const limitBanner = (todos) => {
     let html = '';
     for( let i = 0; i < todos.length; i++)
