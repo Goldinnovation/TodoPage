@@ -1,5 +1,6 @@
 import express from "express";
 import { db } from "./config/database.js"
+import 'dotenv/config';
 import mainpage from "./controller/index.js"
 import editPage from "./controller/edit.js"
 import { Todo } from "./model/index.js";
