@@ -1,5 +1,4 @@
 import express from "express";
-import { PORT } from "./config/app.js"
 import { db } from "./config/database.js"
 import mainpage from "./controller/index.js"
 import editPage from "./controller/edit.js"
@@ -15,14 +14,17 @@ import methodOverride from 'method-override'
 import upladimage from './controller/Avatar.js'
 
 
+
 // Rendering and connection area for the application 
 
 
 
 const app = express();
+const port = 3000; 
 
-app.listen(PORT, () => {
-    console.log(`The Server starts by PORT ${PORT}`)
+
+app.listen(process.env.PORT || port , () => {
+    console.log(`The Server starts by PORT ${port}`)
 })
 
 
