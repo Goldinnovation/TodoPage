@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
-import { MONGOD_URI } from "./app.js";
+import { MONGODB_URI } from "./app.js";
 
 mongoose.set('strictQuery', true)
-mongoose.connect(MONGOD_URI)
+mongoose.connect(MONGODB_URI)
 .then(()=> console.log('Database is connected'))
 .catch(error => console.log(error))
 
