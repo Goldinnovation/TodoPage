@@ -1,11 +1,14 @@
 body{
-    background-color: rgb(54, 54, 54);
+    background: url("giphy.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
     
     
 }
 /* ------------------------------------------- */
     /* header area with user Brandlogo, image and logout */
 /* ------------------------------------------------ */
+
 
 header{
     
@@ -51,10 +54,13 @@ header .log-outarea{
 .read-btn{
     background: none;
     border: none;
+    position: fixed;
     position: absolute;
     top: 8%;
-    left: 53%;
+    left: 51.5%;
+    
 }
+
 .prof-image{
     
     background: cover;
@@ -169,7 +175,7 @@ textarea {
 
 
 .inopen-area {
-    background-color: rgba(1, 242, 255, 0.491);
+    background-color: rgba(1, 242, 255, 0.356);
     box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(85px);
     display: flex;
@@ -195,7 +201,8 @@ textarea {
 }
 
 .done-area{
-    background-color: rgb(0, 131, 83);
+    background-color: rgba(0, 131, 83, 0.356);
+    backdrop-filter: blur(25px);
     width: 35rem;
     height: 28rem;
     margin-top: 1%;
@@ -373,4 +380,87 @@ h2{
 .input-task2{
     width: 200px;
    
+}
+
+/* -------------------------------------------- */
+/* media queries area  */
+/* ------------------------------------------------- */
+@media only screen and (max-width: 2400px) {
+    body{
+        background: url("giphy.gif");
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+    }
+    .read-btn{
+        background: none;
+        border: none;
+        position: absolute;
+        top: 9.5%;
+        left: 53%;
+    }
+    
+  
+    .inopen-area{
+        background-color: rgba(1, 242, 255, 0.356);
+        backdrop-filter: blur(25px);
+        width: 30rem;
+        height: 25rem;
+        
+       
+    }
+    
+    .process-area{
+        background-color: rgba(172, 83, 255, 0.356);
+        backdrop-filter: blur(25px);
+        width: 30rem;
+        height: 25rem;
+    
+    
+    }
+        
+    .done-area{
+        background-color: rgba(0, 131, 83, 0.356);
+        backdrop-filter: blur(25px);
+        width: 30rem;
+        height: 25rem;
+      
+    }
+
+}
+@media only screen and (max-width: 600px) {
+    body{
+        background-color: rgb(20, 54, 33);
+        
+    }
+    .read-btn{
+        background: none;
+        border: none;
+        position: absolute;
+        top: 8%;
+        left: 64%;
+    }
+    .inopen-area{
+        background-color: rgb(93, 81, 81);
+        width: 20rem;
+        height: 20rem;
+       
+    }
+    
+    .process-area{
+        background-color: rgba(172, 83, 255, 0.356);
+        backdrop-filter: blur(25px);
+        width: 20rem;
+        height: 20rem;
+    
+    
+    }
+        
+    .done-area{
+        background-color: rgb(0, 131, 83);
+        width: 20rem;
+        height: 20rem;
+      
+    }
+
 }

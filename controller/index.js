@@ -70,10 +70,11 @@ router.get("/", checkAuthentication, async (req,res) => {
 router.post('/',  async (req,res) => {
     
     const userData = await req.user
+    let userid = userData._id
     let to_date = req.body.Date
     let to_task = req.body.task
     let to_status = req.body.statustype
-    let userid = userData._id
+    
   
     const todo = new Todo(
         {
