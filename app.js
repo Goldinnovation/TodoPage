@@ -1,5 +1,5 @@
 import express from "express";
-import 'dotenv/config'
+import { PORT } from "./config/app.js"
 import { db } from "./config/database.js"
 import mainpage from "./controller/index.js"
 import editPage from "./controller/edit.js"
@@ -21,8 +21,8 @@ import upladimage from './controller/Avatar.js'
 
 const app = express();
 
-app.listen(process.env.PORT, () => {
-    console.log(`The Server starts by PORT ${process.env.PORT}`)
+app.listen(PORT, () => {
+    console.log(`The Server starts by PORT ${PORT}`)
 })
 
 
