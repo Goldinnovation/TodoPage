@@ -15,7 +15,6 @@ import methodOverride from 'method-override'
 import upladimage from './controller/Avatar.js'
 
 
-
 // Rendering and connection area for the application 
 
 
@@ -34,7 +33,7 @@ app.use('/public',express.static('public'))
 app.use(express.urlencoded({extended:true}))
 app.set('view engine', 'ejs')
 app.use(session({
-    secret: process.env.SECRET, 
+    secret: process.env.SECRET || process.env.SECRETKE , 
     resave:false, 
     saveUninitialized: true, 
     store: MongoStore.create(db), 

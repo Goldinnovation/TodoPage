@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
-
+import { MONGODB_URIKEY } from "./app.js";
 
 mongoose.set('strictQuery', true)
-mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/TodoPage")
+mongoose.connect(process.env.MONGODB_URI || MONGODB_URIKEY)
 .then(()=> console.log('Database is connected'))
 .catch(error => console.log(error))
 
