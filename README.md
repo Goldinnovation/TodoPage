@@ -40,3 +40,14 @@ The Website is a To-do Page allowing users to sign up/login into their Accounts.
 Furthermore, users can set their To-DO task with matching status. 
 
 
+
+-------------------------------------------------------------------
+Deployment Instruction: 
+
+
+The Deployment was through Heroku.
+By using the URL: https://todopage.herokuapp.com/login, potential users can access the webpage. 
+
+Sign In process page: 
+
+Please note that your password needs 5-15 characters and a unique character at the end to save the password. 

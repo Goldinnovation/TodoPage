@@ -8,7 +8,7 @@ export const checkmessage = (errorM) =>{
             <div class="err-PWbox" style="color:black">
                 <p>Please check if the requirments are correct 
                     <br>
-                    [minletter: [a-z/A-Z], minchar:[+!-$/], minnum: [5-15] ]
+                    [minletter: [a-z/A-Z], SpcharatEnd:[+!-$/], minnum: [5-15] ]
                 </p>
           </div>
         
