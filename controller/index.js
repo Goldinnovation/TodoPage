@@ -5,9 +5,6 @@ import { statusObjProcess } from "../helpers/ejs-index.js";
 import { statusObjDone } from "../helpers/ejs-index.js";
 import { limitBanner } from "../helpers/ejs-index.js";
 import { editarea } from "../helpers/ejs.edit.js";
-import { RegistUser } from "../model/registuser.js";
-import { initialize } from "../config/passport.js"
-import passport from "passport";
 import { checkAuthentication } from "../Middleware/checkAuth.js";
 import { Imagecollection } from "../model/Avatar.js";
 import { checkProfImg } from "../helpers/ejs-img.js";

@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { Todo } from "../model/index.js";
-import router from "./index.js";
 import { statusObjDone } from "../helpers/ejs-index.js";
 import { statusObjOpen } from "../helpers/ejs-index.js";
 import { statusObjProcess } from "../helpers/ejs-index.js";
@@ -10,7 +9,7 @@ import { Imagecollection } from "../model/Avatar.js";
 import { checkProfImg } from "../helpers/ejs-img.js";
 
 
-
+const router = Router();
 
 
 router.get('/input/:id', async (req,res) => {

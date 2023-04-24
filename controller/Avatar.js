@@ -1,4 +1,4 @@
-import e, { Router } from "express";
+import { Router } from "express";
 import multer from "multer";
 import { Imagecollection } from "../model/Avatar.js";
 import {dirname, join } from "path";  

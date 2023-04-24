@@ -26,7 +26,7 @@ export const statusObjOpen = (todos) =>{
                         <button class="btn-s"><img src="/public/assets/setting.png" alt="" class="set-btn"></button>
                         </form>
                         <form action="/input/${ todos[i].id}/delete" method="GET">
-                        <button class="btn-d"><img src="/public/assets/bin.png" class="bin" alt=""></button>
+                        <button class="btn-d"><img src="/public/assets/bin.png" class="del-btn" alt=""></button>
                         
 
                         </form>
@@ -66,7 +66,7 @@ export const statusObjProcess = (todos) => {
                        <button class="btn-s"><img src="/public/assets/setting.png" alt="" class="set-btn"></button>
                        </form>
                        <form action="/input/${ todos[i].id}/delete" method="GET">
-                       <button class="btn-d"><img src="/public/assets/bin.png" class="bin" alt=""></button>
+                       <button class="btn-d"><img src="/public/assets/bin.png" class="del-btn" alt=""></button>
                        
 
                        </form>
@@ -108,7 +108,7 @@ export const statusObjDone = (todos) => {
                        <button class="btn-s"><img src="/public/assets/setting.png" alt="" class="set-btn"></button>
                        </form>
                        <form action="/input/${ todos[i].id}/delete" method="GET">
-                       <button class="btn-d"><img src="/public/assets/bin.png" class="bin" alt=""></button>
+                       <button class="btn-d"><img src="/public/assets/bin.png" class="del-btn" alt=""></button>
                        
 
                        </form>

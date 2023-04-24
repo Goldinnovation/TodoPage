@@ -264,9 +264,10 @@ h2{
     
 }
 
-.bin{
-    width: 35%;
+.del-btn{
+    width: 30%;
 }
+
 .date-inside{
     
     border: 1px solid black;
@@ -386,7 +387,7 @@ h2{
 /* -------------------------------------------- */
 /* media queries area  */
 /* ------------------------------------------------- */
-@media only screen and (max-width: 2400px) {
+@media only screen and (min-width: 1800px) {
     body{
         background: url("giphy.gif");
         background-repeat: no-repeat;
@@ -397,8 +398,8 @@ h2{
         background: none;
         border: none;
         position: absolute;
-        top: 9.5%;
-        left: 53%;
+        top: 5.5%;
+        left: 51.5%;
     }
     
   
@@ -427,9 +428,55 @@ h2{
         height: 25rem;
       
     }
+    .set-btn{
+        
+        height: 22px;
+        width: 22px;
+      
+        
+       
+        
+    }
+
+    .del-btn{
+        height: 22px;
+        width: 22px;
+       
+    }
+
 
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1800px) {
+    
+    .inopen-area{
+        background-color: rgba(1, 242, 255, 0.356);
+        backdrop-filter: blur(25px);
+    }
+    .read-btn{
+        background: none;
+        border: none;
+        position: absolute;
+        top: 7%;
+        left: 53%;
+    }
+
+    .set-btn{
+        
+        height: 22px;
+        width: 22px;
+        
+        
+    }
+
+    .del-btn{
+        height: 22px;
+        width: 22px;
+        padding: 1%;
+    }
+
+
+}
+@media only screen and (max-width: 800px) {
     body{
         background: url("giphy.gif");
     }
@@ -437,11 +484,11 @@ h2{
         background: none;
         border: none;
         position: absolute;
-        top: 8%;
-        left: 64%;
+        top: 6%;
+        left: 61%;
     }
     .inopen-area{
-        background-color:  rgba(1, 242, 255, 0.356);
+        background-color: rgba(1, 242, 255, 0.356);
         backdrop-filter: blur(25px);
         width: 20rem;
         height: 20rem;
@@ -463,5 +510,75 @@ h2{
         height: 20rem;
       
     }
+    .show-area{   
+        background-color: rgb(198, 197, 197);
+        gap: 0.5%;
+        height: 30px;
+        margin-top: 5%;
+        border: 1px solid;
+        display: flex;
+        justify-content: space-around;
+        max-width: 700px; 
+        align-items: center;
+        font-size: small;
+        }
+
+    .set-btn{
+        
+        height: 18px;
+        width: 18px;
+        border-left: 2px solid black;
+        padding-left: 40%;
+
+
+        
+    }
+
+    .del-btn{
+        height: 18px;
+        width: 18px;
+        padding: 1%;
+    }
+
+}
+/* Phone design set  */
+@media only screen and ( max-width: 400px){
+
+    .show-area{   
+    background-color: rgb(198, 197, 197);
+    gap: 0.5%;
+    height: 30px;
+    margin-top: 5%;
+    border: 1px solid;
+    display: flex;
+    justify-content: space-around;
+    max-width: 700px; 
+    align-items: center;
+    font-size: small;
+    }
+
+    .read-btn{
+        background: none;
+        border: none;
+        position: absolute;
+        top: 4%;
+        left: 69%;
+    }
+
+    .set-btn{
+        
+        height: 15px;
+        width: 15px;
+        border-left: 2px solid black;
+        padding-left: 40%;
+        
+    }
+
+    .del-btn{
+        height: 15px;
+        width: 15px;
+        padding: 1%;
+    }
+
 
 }
