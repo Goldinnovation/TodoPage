@@ -14,7 +14,7 @@ const upload = multer({dest: join(__dirname, "uploadStack")});
 
 
 
-// create the storage object 
+// creates the storage object(Folder where the image are uploaded and stored) 
 var storage =  multer.diskStorage({
     
     destination: function(req, file,cb){

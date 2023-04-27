@@ -4,7 +4,8 @@ import { Router } from "express";
 import { db } from "./database.js";
 
 
-
+// creates a session which is conncted with the database and has a secret key for authentication. 
+// In addition create a expiring date for the users session 
 const router = Router(); 
 
 router.use(session({

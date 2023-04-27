@@ -11,6 +11,9 @@ import { checkProfImg } from "../helpers/ejs-img.js";
 
 const router = Router();
 
+//------------------------------------------------------------------------
+//  Get method renders the editpage on 
+// -----------------------------------------------------------------------
 
 router.get('/input/:id', async (req,res) => {
     const userData = await req.user
@@ -42,6 +45,11 @@ router.get('/input/:id', async (req,res) => {
         res.status(404)
     }
 })
+
+//------------------------------------------------------------------------
+//  post method updates the db object  
+// -----------------------------------------------------------------------
+
 
 router.post("/input/:id", async (req,res) => {
     try{

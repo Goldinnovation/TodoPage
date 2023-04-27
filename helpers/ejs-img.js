@@ -1,5 +1,5 @@
 
-// renders the profil image
+// renders the profil image by default and uploaded image 
 export const checkProfImg = (imgD) =>{
     let html = '';
     if(imgD.length === 0) { 
