@@ -48,6 +48,3 @@ Deployment Instruction:
 The Deployment was through Heroku.
 By using the URL: https://todopage.herokuapp.com/login, potential users can access the webpage. 
 
-Sign In process page: 
-
-Please note that your password needs 5-15 characters and a unique character at the end to save the password. 
